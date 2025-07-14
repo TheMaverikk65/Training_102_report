@@ -1,32 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Training Report - AMRINDER</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training Journal – Day Reports</title>
   <style>
-    body { font-family: Arial; margin: 40px; background: #f4f4f4; }
-    header { background: #333; color: white; padding: 20px; text-align: center; }
-    section { margin-top: 20px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      color: #0077cc;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #007acc;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+
+    @media (max-width: 600px) {
+      .card-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Web Designing Training Report</h1>
-    <p>June 19 – July 31</p>
-  </header>
-  <section>
-    <h2>Overview</h2>
-    <p>This site documents my learning journey in Web Designing.</p>
-     <h2>Daily Learning</h2>
-  <ul>
-    <li><a href="day1.html">Day 1 - Overview of Web Design</a></li>
-    <li><a href="day2.html">Day 2 - Key Principles of Design</a></li>
-    <!-- Add more days later -->
-  </ul>
-    <div class="card-container">
-  <!-- Cards for Day 1 to 30 -->
-  <div class="card"><h3>Day 1</h3><p>HTML Introduction</p><a href="documents/day1.pdf" target="_blank" class="btn">View PDF</a></div>
-  <div class="card"><h3>Day 2</h3><p>Semantic HTML & Tags</p><a href="documents/day2.pdf" target="_blank" class="btn">View PDF</a></div>
-  <div class="card"><h3>Day 3</h3><p>Lists, Links & Media</p><a href="documents/day3.pdf" target="_blank" class="btn">View PDF</a></div>
+
+<header>
+  <h1>Amrinder's Training Journal</h1>
+</header>
+
+<div class="card-container">
+  <!-- Day cards start -->
+  <div class="card"><h3>Day 1</h3><p>HTML Introduction</p><a href="documents/1.pdf" target="_blank" class="btn">View PDF</a></div>
+  <div class="card"><h3>Day 2</h3><p>Semantic HTML & Tags</p><a href="documents/2.pdf" target="_blank" class="btn">View PDF</a></div>
+  <div class="card"><h3>Day 3</h3><p>Lists, Links & Media</p><a href="documents/3.pdf" target="_blank" class="btn">View PDF</a></div>
   <div class="card"><h3>Day 4</h3><p>Tables & Formatting</p><a href="documents/day4.pdf" target="_blank" class="btn">View PDF</a></div>
   <div class="card"><h3>Day 5</h3><p>HTML Forms Introduction</p><a href="documents/day5.pdf" target="_blank" class="btn">View PDF</a></div>
   <div class="card"><h3>Day 6</h3><p>Input Elements & Form Groups</p><a href="documents/day6.pdf" target="_blank" class="btn">View PDF</a></div>
@@ -54,8 +113,7 @@
   <div class="card"><h3>Day 28</h3><p>Media Queries</p><a href="documents/day28.pdf" target="_blank" class="btn">View PDF</a></div>
   <div class="card"><h3>Day 29</h3><p>Responsive Navigation</p><a href="documents/day29.pdf" target="_blank" class="btn">View PDF</a></div>
   <div class="card"><h3>Day 30</h3><p>Transitions & Animations</p><a href="documents/day30.pdf" target="_blank" class="btn">View PDF</a></div>
+  <!-- Cards end -->
 </div>
 
-  </section>
-</body>
-</html>
+</
