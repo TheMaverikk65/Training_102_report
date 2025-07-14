@@ -3,112 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Training Report – Amrinder Singh</title>
+  <title>Choose Your Training Day Report</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f8fc;
+      background-color: #f0f4f8;
       margin: 0;
-      padding: 0;
+      padding: 40px 20px;
+      text-align: center;
       color: #333;
     }
 
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-
-    .intro {
-      padding: 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .report-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .report-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .report-card h3 {
-      margin: 10px 0;
+    h1 {
+      margin-bottom: 30px;
       color: #0077cc;
     }
 
-    .report-card a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 14px;
+    select {
+      padding: 10px 15px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 1em;
       background-color: #007acc;
       color: white;
-      text-decoration: none;
+      border: none;
       border-radius: 5px;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
-    .report-card a:hover {
+    .btn:hover {
       background-color: #005fa3;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Amrinder Singh – Training Report</h1>
-  </header>
+  <h1>Choose Which Day You Want to See</h1>
 
-  <div class="intro">
-    <p>This site contains daily PDF reports from my 4-week industrial training. Click on any day below to view the corresponding report.</p>
-  </div>
+  <select id="daySelector">
+    <option value="" selected disabled>Select a Day</option>
+    <!-- Day options -->
+    <option value="documents/day1.pdf">Day 1 – HTML Introduction</option>
+    <option value="documents/day2.pdf">Day 2 – Semantic HTML & Tags</option>
+    <option value="documents/day3.pdf">Day 3 – Lists, Links & Media</option>
+    <option value="documents/day4.pdf">Day 4 – Tables & Formatting</option>
+    <option value="documents/day5.pdf">Day 5 – Forms Introduction</option>
+    <option value="documents/day6.pdf">Day 6 – Input Elements</option>
+    <option value="documents/day7.pdf">Day 7 – Validation Basics</option>
+    <option value="documents/day8.pdf">Day 8 – HTML Project</option>
+    <option value="documents/day9.pdf">Day 9 – Practice & Recap</option>
+    <option value="documents/day10.pdf">Day 10 – Intro to CSS</option>
+    <option value="documents/day11.pdf">Day 11 – Styling Forms</option>
+    <option value="documents/day12.pdf">Day 12 – Embedding Media</option>
+    <option value="documents/day13.pdf">Day 13 – Iframes & Embeds</option>
+    <option value="documents/day14.pdf">Day 14 – Debugging HTML</option>
+    <option value="documents/day15.pdf">Day 15 – HTML Mini Project</option>
+    <option value="documents/day16.pdf">Day 16 – CSS Fundamentals</option>
+    <option value="documents/day17.pdf">Day 17 – Text & Backgrounds</option>
+    <option value="documents/day18.pdf">Day 18 – Box Model</option>
+    <option value="documents/day19.pdf">Day 19 – Specificity</option>
+    <option value="documents/day20.pdf">Day 20 – Typography</option>
+    <option value="documents/day21.pdf">Day 21 – Full Page Styling</option>
+    <option value="documents/day22.pdf">Day 22 – Flexbox Layout</option>
+    <option value="documents/day23.pdf">Day 23 – Grid Layout</option>
+    <option value="documents/day24.pdf">Day 24 – CSS Positioning</option>
+    <option value="documents/day25.pdf">Day 25 – Responsive Units</option>
+    <option value="documents/day26.pdf">Day 26 – Flex + Grid</option>
+    <option value="documents/day27.pdf">Day 27 – Layout Challenge</option>
+    <option value="documents/day28.pdf">Day 28 – Media Queries</option>
+    <option value="documents/day29.pdf">Day 29 – Navigation</option>
+    <option value="documents/day30.pdf">Day 30 – Transitions</option>
+  </select>
 
-  <div class="report-grid">
-    <!-- Repeat for each day -->
-    <div class="report-card">
-      <h3>Day 1</h3>
-      <a href="documents/day1.pdf" target="_blank">View PDF</a>
-    </div>
-    <div class="report-card">
-      <h3>Day 2</h3>
-      <a href="documents/day2.pdf" target="_blank">View PDF</a>
-    </div>
-    <div class="report-card">
-      <h3>Day 3</h3>
-      <a href="documents/day3.pdf" target="_blank">View PDF</a>
-    </div>
-    <!-- Add more cards up to Day 30 -->
-  </div>
+  <br />
+  <button class="btn" onclick="openPDF()">Open Report</button>
 
-  <footer>
-    &copy; 2025 Amrinder Singh | Training Journal
-  </footer>
+  <script>
+    function openPDF() {
+      const selector = document.getElementById("daySelector");
+      const pdfPath = selector.value;
+      if (pdfPath) {
+        window.open(pdfPath, "_blank");
+      } else {
+        alert("Please select a day first.");
+      }
+    }
+  </script>
 
 </body>
 </html>
-
