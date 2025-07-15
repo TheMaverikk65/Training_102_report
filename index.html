@@ -556,7 +556,7 @@
             const totalDays = 16; // Assuming 16 days for the report
             for (let i = 1; i <= totalDays; i++) {
                 const button = document.createElement('button');
-                button.textContent = `Day ${i}`;
+                button.textContent = `${i}`;
                 button.onclick = () => loadDay(i);
                 daySelectionBar.appendChild(button);
             }
@@ -570,8 +570,8 @@
         function loadDay(dayNumber) {
             const pdfViewer = document.getElementById('dailyReportPdfViewer');
             // Update this base URL if your PDFs are hosted elsewhere
-            const baseUrl = 'https://srijansingh9.github.io/Training-102-Report/'; 
-            pdfViewer.src = `${baseUrl}Day${dayNumber}.pdf`;
+            const baseUrl = 'https://themaverikk65.github.io/Training_102_report/#'; 
+            pdfViewer.src = `${baseUrl}${dayNumber}.pdf`;
 
             // Update active button styling
             const buttons = document.querySelectorAll('.day-selection-bar button');
