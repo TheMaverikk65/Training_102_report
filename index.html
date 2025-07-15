@@ -14,15 +14,20 @@
             background: linear-gradient(to right, #e0f2f7, #c8e6c9); /* Soft gradient background */
             color: #333;
             line-height: 1.6;
+            display: flex; /* Use flexbox for overall layout */
+            flex-direction: column; /* Stack header, main-wrapper, footer vertically */
+            min-height: 100vh; /* Ensure body takes full viewport height */
         }
-        .container {
+        .main-wrapper {
+            display: flex; /* Flex container for sidebar and content */
+            flex-grow: 1; /* Allow it to grow and fill available space */
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.95); /* Slightly less transparent white */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-            border-radius: 15px; /* More rounded corners */
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            overflow: hidden; /* Hide overflow for rounded corners */
         }
         header {
             display: flex;
@@ -34,6 +39,9 @@
             color: #fff;
             border-radius: 15px 15px 0 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto 0 auto; /* Center header and align with container */
+            width: 90%;
+            max-width: 1200px;
         }
         header img {
             height: 60px; /* Slightly larger logos */
@@ -56,53 +64,66 @@
             background-color: #1976d2; /* Darker blue on hover */
             transform: translateY(-2px); /* Slight lift effect */
         }
-        nav {
-            text-align: center;
-            margin-bottom: 30px; /* More space below nav */
-            padding-top: 20px;
-        }
-        nav a {
-            display: inline-block;
-            padding: 12px 22px;
-            background-color: #00796b; /* Teal color for main nav buttons */
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px; /* Fixed width sidebar */
+            background-color: #3f51b5; /* Indigo color for sidebar */
+            padding: 20px;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
             color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            margin: 7px; /* More spacing between buttons */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .project-buttons {
+            overflow-y: auto; /* Enable scrolling for many links */
+            border-radius: 15px 0 0 15px; /* Rounded left corners */
             display: flex;
-            flex-wrap: wrap;
-            margin: 25px 0;
-            justify-content: center; /* Center project buttons */
+            flex-direction: column;
+            align-items: center; /* Center items in sidebar */
         }
-        .project-button {
-            background-color: #6a1b9a; /* Deep purple for project buttons */
+        .sidebar h2 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #7986cb; /* Lighter indigo underline */
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 0; /* Reset margin from global nav style */
+            padding-top: 0; /* Reset padding from global nav style */
+        }
+        .sidebar nav a {
+            display: block; /* Make links block level */
+            padding: 12px 15px;
+            background-color: #5c6bc0; /* Lighter indigo for sidebar buttons */
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
-            margin: 8px;
+            margin-bottom: 10px; /* Spacing between sidebar buttons */
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-            padding: 12px 25px;
             font-weight: 500;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text in sidebar buttons */
         }
-        .project-button:hover {
-            background-color: #4a148c; /* Darker purple on hover */
-            transform: translateY(-2px);
+        .sidebar nav a:hover {
+            background-color: #303f9f; /* Darker indigo on hover */
+            transform: translateX(5px); /* Slight slide effect */
         }
-        nav a:hover {
-            background-color: #004d40; /* Darker teal on hover */
-            transform: translateY(-2px);
+
+        /* Main Content Area */
+        .content-area {
+            flex-grow: 1; /* Allow content area to take remaining space */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 0 15px 15px 0; /* Rounded right corners */
+            overflow-y: auto; /* Enable scrolling for content if needed */
         }
+
         .section {
             display: none;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Sections inside content-area are white */
             border-radius: 10px;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Inner shadow for sections */
         }
@@ -204,14 +225,39 @@
             list-style-type: decimal;
             padding-left: 25px;
         }
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            justify-content: center; /* Center project buttons */
+        }
+        .project-button {
+            background-color: #6a1b9a; /* Deep purple for project buttons */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            padding: 12px 25px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .project-button:hover {
+            background-color: #4a148c; /* Darker purple on hover */
+            transform: translateY(-2px);
+        }
         footer {
             text-align: center;
             padding: 25px;
-            margin-top: 50px;
+            margin-top: 20px; /* Adjusted margin to fit new layout */
             background: linear-gradient(to right, #212121, #424242); /* Darker, sleek footer */
             color: #e0e0e0;
             border-radius: 0 0 15px 15px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto; /* Center footer and align with container */
         }
         footer a {
             color: #81d4fa; /* Lighter blue for footer link */
@@ -222,11 +268,74 @@
             text-decoration: underline;
             color: #bbdefb;
         }
+
+        /* New styles for the day selection bar */
+        .day-selection-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Space between buttons */
+            padding: 15px;
+            background-color: #e3f2fd; /* Light blue background for the bar */
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .day-selection-bar button {
+            background-color: #2196f3; /* Blue button color */
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex-grow: 1; /* Allow buttons to grow */
+            min-width: 80px; /* Minimum width for buttons */
+            max-width: 120px; /* Maximum width for buttons */
+        }
+        .day-selection-bar button:hover {
+            background-color: #1976d2; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+        .day-selection-bar button.active-day {
+            background-color: #0d47a1; /* Even darker blue for active button */
+            font-weight: 600;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 768px) {
+            .main-wrapper {
+                flex-direction: column; /* Stack sidebar and content vertically on small screens */
+                margin: 10px auto;
+                width: 95%;
+            }
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+                border-radius: 15px 15px 0 0; /* Rounded top corners */
+                padding: 15px;
+            }
+            .sidebar nav {
+                flex-direction: row; /* Horizontal buttons in sidebar on small screens */
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .sidebar nav a {
+                width: calc(50% - 20px); /* Two buttons per row */
+                margin: 5px;
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+            .content-area {
+                border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+                padding: 15px;
+            }
             header {
                 flex-direction: column;
                 align-items: center;
                 padding: 10px 15px;
+                margin: 10px auto 0 auto;
+                width: 95%;
             }
             header .home-button {
                 font-size: 15px;
@@ -234,12 +343,6 @@
             }
             header img {
                 height: 50px;
-            }
-            nav a {
-                width: calc(50% - 14px); /* Two buttons per row on small screens */
-                margin: 5px 3px;
-                font-size: 14px;
-                padding: 10px 15px;
             }
             .pdf-container iframe {
                 height: 450px;
@@ -256,265 +359,170 @@
             .gallery .caption {
                 font-size: 16px;
             }
+            .day-selection-bar button {
+                min-width: unset; /* Remove min-width on small screens */
+                flex-basis: calc(33% - 10px); /* 3 buttons per row */
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
         }
         @media (max-width: 480px) {
-            nav a {
-                width: calc(100% - 14px); /* One button per row on very small screens */
+            .sidebar nav a {
+                width: calc(100% - 20px); /* One button per row on very small screens */
             }
             .certificate-container img {
                 max-width: 95%;
+            }
+            .day-selection-bar button {
+                flex-basis: calc(50% - 10px); /* 2 buttons per row on very small screens */
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="https://www.gndec.ac.in/"><img src="gndecLogo.png" alt="GNDEC Logo"></a>
-            <a href="#" class="home-button" onclick="showSection('home')">Home</a>
-            <a href="https://www.thinknexttraining.com/"><img src="thinknextlogo.avif" alt="TN logo"></a>
-        </header>
-        
+    <header>
+        <a href="https://www.gndec.ac.in/"><img src="gndecLogo.png" alt="GNDEC Logo"></a>
+        <a href="#" class="home-button" onclick="showSection('home')">Home</a>
+        <a href="https://prasarbharati.gov.in/doordarshan/"><img src="ddlogo.png" alt="DD Logo"></a>
+    </header>
 
-        <section id="home" class="section active">
-            <h1>My Summer Training Report</h1>
-            <p>By Your Name, Your URN <br> Your College Name</p>
-            <h2>4 Week training at <br> Your Training Organization</h2>
-        </section>
-        <nav>
-            <a style="background-color: #009688;" href="#" onclick="showSection('certificate')">Training Certificate</a>
-            <a style="background-color: #009688;" href="#" onclick="showSection('Final-Report')">Final Report</a>
-            <a href="#" onclick="showSection('1')">Day 1</a>
-            <a href="#" onclick="showSection('2')">Day 2</a>
-            <a href="#" onclick="showSection('3')">Day 3</a>
-            <a href="#" onclick="showSection('day4')">Day 4</a>
-            <a href="#" onclick="showSection('day5')">Day 5</a>
-            <a href="#" onclick="showSection('day6')">Day 6</a>
-            <a href="#" onclick="showSection('day7')">Day 7</a>
-            <a href="#" onclick="showSection('day8')">Day 8</a>
-            <a href="#" onclick="showSection('day9')">Day 9</a>
-            <a href="#" onclick="showSection('day10')">Day 10</a>
-            <a href="#" onclick="showSection('day11')">Day 11</a>
-            <a href="#" onclick="showSection('day12')">Day 12</a>
-            <a href="#" onclick="showSection('day13')">Day 13</a>
-            <a href="#" onclick="showSection('day14')">Day 14</a>
-            <a href="#" onclick="showSection('day15')">Day 15</a>
-            <a href="#" onclick="showSection('day16')">Day 16</a>
-            <!-- <a href="#" onclick="showsection('day17')">Day 17</a> -->
-            <a href="#" onclick="showSection('gallery')">Gallery</a>
-            <!-- Add more links for additional days if needed -->
-            <a style="background-color: #673ab7;" href="#" onclick="showSection('projects')">Projects</a>
-        </nav>
-        <section id="certificate" class="section">
-            <h1>Certificate</h1>
-            <div class="certificate-container">
-                <img src="TC.jpg" alt="Training Certificate">
-            </div>
-        </section>  
-        <section id="Final-Report" class="section">
-            <h1>Final Report</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Final Report.pdf"></iframe>
-            </div>
-        </section>  
-        <section id="1" class="section">
-            <h1>Training Report Day 1</h1>
-            <div class="pdf-container">
-                <iframe src="https://themaverikk65.github.io/Training_102_report/1.pdf"></iframe>
-            </div>
-        </section>
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <h2>Report Sections</h2>
+            <nav>
+                <a style="background-color: #009688;" href="#" onclick="showSection('certificate')">Training Certificate</a>
+                <a style="background-color: #009688;" href="#" onclick="showSection('Final-Report')">Final Report</a>
+                <!-- Updated link to point to the new daily-reports section -->
+                <a href="#" onclick="showSection('daily-reports'); loadDay(1);">Daily Reports</a>
+                <a href="#" onclick="showSection('gallery')">Gallery</a>
+                <a style="background-color: #673ab7;" href="#" onclick="showSection('projects')">Projects</a>
+            </nav>
+        </aside>
 
-        <section id="2" class="section">
-            <h1>Training Report Day 2</h1>
-            <div class="pdf-container">
-                <iframe src="https://themaverikk65.github.io/Training_102_report/2.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="3" class="section">
-            <h1>Training Report Day 3</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day3.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day4" class="section">
-            <h1>Training Report Day 4</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day4.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day5" class="section">
-            <h1>Training Report Day 5</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day5.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day6" class="section">
-            <h1>Training Report Day 6</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day6.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day7" class="section">
-            <h1>Training Report Day 7</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day7.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day8" class="section">
-            <h1>Training Report Day 8</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day8.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day9" class="section">
-            <h1>Training Report Day 9</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day9.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day10" class="section">
-            <h1>Training Report Day 10</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day10.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day11" class="section">
-            <h1>Training Report Day 11</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day11.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day12" class="section">
-            <h1>Training Report Day 12</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day12.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day13" class="section">
-            <h1>Training Report Day 13</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day13.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day14" class="section">
-            <h1>Training Report Day 14</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day14.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="day15" class="section">
-            <h1>Training Report Day 15</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day15.pdf"></iframe>
-            </div>  
-        </section>
-
-        <section id="day16" class="section">
-            <h1>Training Report Day 16</h1>
-            <div class="pdf-container">
-                <iframe src="https://srijansingh9.github.io/Training-102-Report/Day16.pdf"></iframe>
-            </div>
-        </section>
-
-        <section id="gallery" class="section">
-            <h2>Gallery</h2>
-            <div class="gallery">
-                <img src="IngestRoom1.jpg" alt="Ingest Room">
-                <div class="caption">Ingest Room</div>
-                <img src="DDIndia Studio.jpg" alt="DD India Studio"  class="active">
-                <div class="caption">DD India Studio</div>
-                <img src="TP.jpg" alt="TP">
-                <div class="caption">TelePrompter</div>
-                <img src="IngestRoom2.jpg" alt="Ingest Room">
-                <div class="caption">Ingest Room</div>
-                <img src="Studio and jimmy jib.jpg" alt="Studio and jimmy jib">
-                <div class="caption">Studio and Jimmy Jib (Camera Crane)</div>
-                <img src="News Studio with news anchor's perspective.jpg" alt="News Studio with news anchor's perspective">
-                <div class="caption">News Studio with news anchor's perspective</div>
-                <img src="Wireless Lapel Mic.jpg" alt="Wireless Lapel Mic">
-                <div class="caption">Wireless Lapel Mic</div>
-                <img src="Lapel Mic.jpg" alt="Lapel Mic">
-                <div class="caption">Lapel Mic (Used by News Anchor ...)</div>
-                <img src="PCR.jpg" alt="PCR">
-                <div class="caption">PCR</div>
-                <img src="ENPS SR.jpg" alt="ENPS Server Room">
-                <div class="caption">ENPS Server Room</div>
-                <img src="AP ENPS.jpg" alt="AP ENPS Dashboard">
-                <div class="caption">AP ENPS Dashboard</div>
-                <img src="SpectraDashboard.jpg" alt="Spectra Black Pearl Dashboard">
-                <div class="caption">Spectra Black Pearl Dashboard</div>
-                <img src="StuderVista.jpg" alt="Studer Vista Black Pearl ">
-                <div class="caption">VISTA Studer 1 Black Edition Digital Mixing Console</div>
-                <img src="SpectraDashboard1.jpg" alt="Spectra Black Pearl Dashboard">
-                <div class="caption">Spectra Black Pearl Dashboard</div>
-                <img src="MeAtStudio.jpg" alt="Me At Studio"> 
-                <div class="caption">Me At Studio</div>
-                <img src="Earth Station Diagram.jpg" alt="Earth Station Diagram">   
-                <div class="caption">Earth Station Diagram</div>
-                <img scr="Dish At Earth Station for uplinking as well as downlinking.jpg" alt="Dish At Earth Station for uplinking as well as downlinking">
-                <div class="caption">Dish At Earth Station for uplinking as well as downlinking</div>
-        </section>
-        <section id="projects" class="section">
-            <h1>Projects</h1>
-            <ul>
-            <li>
-            <div class="project-buttons">
-                <a href="https://srijansingh9.github.io/Teleprompter/" class="project-button">Teleprompter</a>
-            </div>
-            <div class="project-details">
-            
-                <h2>Teleprompter Project</h2>
-                <p>This project is a simple web-based teleprompter created for demonstrative purposes. It showcases the basic functionality of a teleprompter using HTML, CSS, and JavaScript.</p>
-                <b>Features</b>
-                <ol>
-                    <li>It has option to change the text font size to accordingly make it easy to read from a distance.</li>
-                    <li>It can scroll the text at +ve as well as -ve speed that can be adjusted using the speed control bar.</li>
-                    <li>It provides controls to start, pause, and toggle fullscreen .</li>
-                    <li>It allows the user to input their own text as well as selecting a text file to be displayed on the teleprompter.</li>
-                </ol>
-            </li>
-            <li>
-                <div class="project-buttons">
-                    <a href="https://github.com/ebu/awesome-broadcasting" class="project-button" onclick="showSection('NRCS')">Creating our own NRCS</a>
+        <div class="content-area">
+            <section id="home" class="section active">
+                <h1>My Summer Training Report</h1>
+                <p>By Your Name, Your URN <br> Your College Name</p>
+                <h2>4 Week training at <br> Your Training Organization</h2>
+            </section>
+            <section id="certificate" class="section">
+                <h1>Certificate</h1>
+                <div class="certificate-container">
+                    <img src="TC.jpg" alt="Training Certificate">
                 </div>
-                <section id="NRCS" class="project-details">
-                    <h1>Creating our own NRCS</h1>
-                    <div class="pdf-container">
-                        <iframe src="https://srijansingh9.github.io/Training-102-Report/Creating our own NRCS.pdf"></iframe>
+            </section>  
+            <section id="Final-Report" class="section">
+                <h1>Final Report</h1>
+                <div class="pdf-container">
+                    <iframe src="https://srijansingh9.github.io/Training-102-Report/Final Report.pdf"></iframe>
+                </div>
+            </section>  
+            
+            <!-- New Daily Reports Section with Day Selection Bar -->
+            <section id="daily-reports" class="section">
+                <h1>Daily Training Reports</h1>
+                <div class="day-selection-bar" id="daySelectionBar">
+                    <!-- Buttons for each day will be generated here by JavaScript -->
+                </div>
+                <div class="pdf-container">
+                    <iframe id="dailyReportPdfViewer" src=""></iframe>
+                </div>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2>Gallery</h2>
+                <div class="gallery">
+                    <img src="IngestRoom1.jpg" alt="Ingest Room">
+                    <div class="caption">Ingest Room</div>
+                    <img src="DDIndia Studio.jpg" alt="DD India Studio"  class="active">
+                    <div class="caption">DD India Studio</div>
+                    <img src="TP.jpg" alt="TP">
+                    <div class="caption">TelePrompter</div>
+                    <img src="IngestRoom2.jpg" alt="Ingest Room">
+                    <div class="caption">Ingest Room</div>
+                    <img src="Studio and jimmy jib.jpg" alt="Studio and jimmy jib">
+                    <div class="caption">Studio and Jimmy Jib (Camera Crane)</div>
+                    <img src="News Studio with news anchor's perspective.jpg" alt="News Studio with news anchor's perspective">
+                    <div class="caption">News Studio with news anchor's perspective</div>
+                    <img src="Wireless Lapel Mic.jpg" alt="Wireless Lapel Mic">
+                    <div class="caption">Wireless Lapel Mic</div>
+                    <img src="Lapel Mic.jpg" alt="Lapel Mic">
+                    <div class="caption">Lapel Mic (Used by News Anchor ...)</div>
+                    <img src="PCR.jpg" alt="PCR">
+                    <div class="caption">PCR</div>
+                    <img src="ENPS SR.jpg" alt="ENPS Server Room">
+                    <div class="caption">ENPS Server Room</div>
+                    <img src="AP ENPS.jpg" alt="AP ENPS Dashboard">
+                    <div class="caption">AP ENPS Dashboard</div>
+                    <img src="SpectraDashboard.jpg" alt="Spectra Black Pearl Dashboard">
+                    <div class="caption">Spectra Black Pearl Dashboard</div>
+                    <img src="StuderVista.jpg" alt="Studer Vista Black Pearl ">
+                    <div class="caption">VISTA Studer 1 Black Edition Digital Mixing Console</div>
+                    <img src="SpectraDashboard1.jpg" alt="Spectra Black Pearl Dashboard">
+                    <div class="caption">Spectra Black Pearl Dashboard</div>
+                    <img src="MeAtStudio.jpg" alt="Me At Studio"> 
+                    <div class="caption">Me At Studio</div>
+                    <img src="Earth Station Diagram.jpg" alt="Earth Station Diagram">   
+                    <div class="caption">Earth Station Diagram</div>
+                    <img scr="Dish At Earth Station for uplinking as well as downlinking.jpg" alt="Dish At Earth Station for uplinking as well as downlinking">
+                    <div class="caption">Dish At Earth Station for uplinking as well as downlinking</div>
+            </section>
+            <section id="projects" class="section">
+                <h1>Projects</h1>
+                <ul>
+                <li>
+                <div class="project-buttons">
+                    <a href="https://srijansingh9.github.io/Teleprompter/" class="project-button">Teleprompter</a>
+                </div>
+                <div class="project-details">
+                
+                    <h2>Teleprompter Project</h2>
+                    <p>This project is a simple web-based teleprompter created for demonstrative purposes. It showcases the basic functionality of a teleprompter using HTML, CSS, and JavaScript.</p>
+                    <b>Features</b>
+                    <ol>
+                        <li>It has option to change the text font size to accordingly make it easy to read from a distance.</li>
+                        <li>It can scroll the text at +ve as well as -ve speed that can be adjusted using the speed control bar.</li>
+                        <li>It provides controls to start, pause, and toggle fullscreen .</li>
+                        <li>It allows the user to input their own text as well as selecting a text file to be displayed on the teleprompter.</li>
+                    </ol>
+                </li>
+                <li>
+                    <div class="project-buttons">
+                        <a href="https://github.com/ebu/awesome-broadcasting" class="project-button" onclick="showSection('NRCS')">Creating our own NRCS</a>
                     </div>
-                </section>
+                    <section id="NRCS" class="project-details">
+                        <h1>Creating our own NRCS</h1>
+                        <div class="pdf-container">
+                            <iframe src="https://srijansingh9.github.io/Training-102-Report/Creating our own NRCS.pdf"></iframe>
+                        </div>
+                    </section>
 
-            </li>
-            </ul>
-            </div>
-        </section>
-
-        <footer>
-           <a href="YOUR_LINKEDIN_PROFILE_URL"> &copy; Your Name</a>
-        </footer>
+                </li>
+                </ul>
+                </div>
+            </section>
+        </div>
     </div>
+
+    <footer>
+       <a href="YOUR_LINKEDIN_PROFILE_URL"> &copy; Your Name</a>
+    </footer>
     <script>
+        // Function to show a specific section
         function showSection(id) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
             document.getElementById(id).classList.add('active');
+
+            // If the daily-reports section is activated, load Day 1 by default
+            if (id === 'daily-reports') {
+                loadDay(1);
+            }
         }
 
+        // Gallery slideshow logic
         let currentIndex = 0;
         const images = document.querySelectorAll('.gallery img');
         const captions = document.querySelectorAll('.gallery .caption');
@@ -524,19 +532,56 @@
                 img.classList.remove('active');
                 captions[i].style.display = 'none';
             });
-            images[index].classList.add('active');
-            captions[index].style.display = 'block';
+            if (images.length > 0) { // Ensure there are images before trying to access them
+                images[index].classList.add('active');
+                captions[index].style.display = 'block';
+            }
         }
 
         function nextSlide() {
+            if (images.length === 0) return; // Do nothing if no images
             currentIndex = (currentIndex + 1) % images.length;
             showSlide(currentIndex);
         }
 
-        // Initialize the first slide and start the slideshow
-        if (images.length > 0) {
-            showSlide(currentIndex);
-            setInterval(nextSlide, 4000); // Change image every 4 seconds
+        // Initialize the first slide and start the slideshow when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            if (images.length > 0) {
+                showSlide(currentIndex);
+                setInterval(nextSlide, 4000); // Change image every 4 seconds
+            }
+
+            // Generate day selection buttons and load Day 1 initially
+            const daySelectionBar = document.getElementById('daySelectionBar');
+            const totalDays = 16; // Assuming 16 days for the report
+            for (let i = 1; i <= totalDays; i++) {
+                const button = document.createElement('button');
+                button.textContent = `Day ${i}`;
+                button.onclick = () => loadDay(i);
+                daySelectionBar.appendChild(button);
+            }
+
+            // Load Day 1 PDF by default when the page loads or daily-reports section is activated
+            // This is also called by showSection('daily-reports')
+            loadDay(1); 
+        });
+
+        // Function to load a specific day's PDF
+        function loadDay(dayNumber) {
+            const pdfViewer = document.getElementById('dailyReportPdfViewer');
+            // Update this base URL if your PDFs are hosted elsewhere
+            const baseUrl = 'https://srijansingh9.github.io/Training-102-Report/'; 
+            pdfViewer.src = `${baseUrl}Day${dayNumber}.pdf`;
+
+            // Update active button styling
+            const buttons = document.querySelectorAll('.day-selection-bar button');
+            buttons.forEach((button, index) => {
+                if (index + 1 === dayNumber) {
+                    button.classList.add('active-day');
+                } else {
+                    button.classList.remove('active-day');
+                }
+            });
         }
     </script>
 </body>
