@@ -11,121 +11,126 @@
             font-family: 'Poppins', sans-serif; /* Modern font */
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #e0f2f7, #c8e6c9); /* Soft gradient background */
+            /* Subtle background pattern to add texture */
+            background-color: #e3f2fd; 
+            background-image: radial-gradient(#bbdefb 1px, transparent 1px);
+            background-size: 20px 20px;
             color: #333;
             line-height: 1.6;
-            display: flex; /* Use flexbox for overall layout */
-            flex-direction: column; /* Stack header, main-wrapper, footer vertically */
-            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .main-wrapper {
-            display: flex; /* Flex container for sidebar and content */
-            flex-grow: 1; /* Allow it to grow and fill available space */
+        .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            border-radius: 15px;
-            overflow: hidden; /* Hide overflow for rounded corners */
+            padding: 20px;
+            background-color: #ffffff; /* Pure white content background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger, softer shadow */
+            border: 1px solid #e1e1e1; /* Subtle border for definition */
+            border-radius: 20px; /* More rounded corners for the main container */
+            flex-grow: 1;
+            display: flex; /* Make container a flex container */
+            flex-direction: column; /* Stack its children vertically */
         }
         header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to right, #1a237e, #283593); /* Deep blue gradient */
-            padding: 15px 25px;
+            background: linear-gradient(135deg, #1a237e, #283593); /* Angled gradient */
+            padding: 20px 30px;
             color: #fff;
-            border-radius: 15px 15px 0 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px auto 0 auto; /* Center header and align with container */
+            border-radius: 20px 20px 0 0; /* Match container rounding */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 auto; /* Full width header, centered */
             width: 90%;
             max-width: 1200px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        header:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         header img {
-            height: 60px; /* Slightly larger logos */
+            height: 70px; /* Larger logos */
             margin: 5px 0;
             max-width: 100%;
-            border-radius: 5px; /* Slightly rounded logos */
+            border-radius: 8px; /* More rounded logos */
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.05); /* Slight scale on hover */
         }
         header .home-button {
             background-color: #42a5f5; /* Lighter blue for home button */
             color: #fff;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: none;
-            border-radius: 8px; /* More rounded button */
+            border-radius: 10px; /* More rounded button */
             text-decoration: none;
-            font-size: 17px;
+            font-size: 18px;
             margin: 5px 0;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         header .home-button:hover {
             background-color: #1976d2; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight lift effect */
+            transform: translateY(-3px); /* More pronounced lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 250px; /* Fixed width sidebar */
-            background-color: #3f51b5; /* Indigo color for sidebar */
-            padding: 20px;
-            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
-            color: #fff;
-            overflow-y: auto; /* Enable scrolling for many links */
-            border-radius: 15px 0 0 15px; /* Rounded left corners */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center items in sidebar */
-        }
-        .sidebar h2 {
-            color: #fff;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #7986cb; /* Lighter indigo underline */
-            padding-bottom: 10px;
+        /* Main Navigation Bar (Horizontal) */
+        .main-nav-bar {
             text-align: center;
+            background: linear-gradient(to right, #2196f3, #42a5f5); /* Subtle gradient */
+            padding: 10px 0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px; /* Space below nav */
         }
-        .sidebar nav {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-bottom: 0; /* Reset margin from global nav style */
-            padding-top: 0; /* Reset padding from global nav style */
-        }
-        .sidebar nav a {
-            display: block; /* Make links block level */
-            padding: 12px 15px;
-            background-color: #5c6bc0; /* Lighter indigo for sidebar buttons */
+        .main-nav-bar a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: transparent; /* Transparent background */
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
-            margin-bottom: 10px; /* Spacing between sidebar buttons */
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 8px; /* Horizontal spacing */
+            transition: all 0.3s ease;
             font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Center text in sidebar buttons */
+            position: relative; /* For underline effect */
         }
-        .sidebar nav a:hover {
-            background-color: #303f9f; /* Darker indigo on hover */
-            transform: translateX(5px); /* Slight slide effect */
+        .main-nav-bar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white hover */
+            transform: translateY(-2px);
         }
-
-        /* Main Content Area */
-        .content-area {
-            flex-grow: 1; /* Allow content area to take remaining space */
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 0 15px 15px 0; /* Rounded right corners */
-            overflow-y: auto; /* Enable scrolling for content if needed */
+        .main-nav-bar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff; /* White underline */
+            transition: width 0.3s ease;
+        }
+        .main-nav-bar a:hover::after {
+            width: 80%; /* Grow underline on hover */
         }
 
         .section {
             display: none;
-            padding: 20px;
-            background-color: #ffffff; /* Sections inside content-area are white */
-            border-radius: 10px;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Inner shadow for sections */
+            padding: 30px; /* More padding for sections */
+            background-color: #ffffff;
+            border-radius: 15px; /* Match container rounding */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Lighter shadow for inner sections */
+            margin-bottom: 30px; /* Space between sections if multiple are visible */
+            transition: all 0.5s ease;
+            border: 1px solid #f0f0f0;
         }
         .section.active {
             display: block;
@@ -133,47 +138,50 @@
         h1, h2, p {
             text-align: center;
             color: #2c3e50; /* Darker text for headings */
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* More space below headings */
         }
         h1 {
-            font-size: 2.8em; /* Larger main title */
+            font-size: 3.2em; /* Even larger main title */
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 25px;
+            color: #1a237e; /* Deep blue for main section titles */
         }
         h2 {
-            font-size: 2.2em; /* Larger section titles */
+            font-size: 2.5em; /* Larger section titles */
             font-weight: 600;
-            border-bottom: 2px solid #42a5f5; /* Blue underline */
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            border-bottom: 3px solid #2196f3; /* Blue underline */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: #444;
         }
         .pdf-container {
             text-align: center;
-            margin: 25px 0;
+            margin: 30px 0; /* More margin */
         }
         .pdf-container iframe {
             width: 100%;
-            height: 650px; /* Slightly taller PDF viewer */
-            border: 1px solid #ddd; /* Light border */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            height: 700px; /* Taller PDF viewer */
+            border: 2px solid #ddd; /* Slightly thicker border */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            border-radius: 15px;
         }
         .gallery {
             position: relative;
             width: 100%;
-            max-width: 850px; /* Slightly wider gallery */
+            max-width: 900px; /* Wider gallery */
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background-color: #f0f0f0; /* Light background for gallery */
-            padding: 10px;
+            border-radius: 20px; /* More rounded */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+            background-color: #e3f2fd; /* Very light blue background for gallery */
+            padding: 15px;
         }
         .gallery img {
             width: 100%;
             display: none;
             transition: opacity 1s ease-in-out;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow for images */
         }
         .gallery img.active {
             display: block;
@@ -181,83 +189,90 @@
         }
         .gallery .caption {
             text-align: center;
-            margin-top: 15px;
-            color: #444;
-            font-size: 18px; /* Larger caption font */
+            margin-top: 20px;
+            color: #555;
+            font-size: 20px; /* Larger caption font */
             font-weight: 500;
             display: none;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         .gallery .caption.active {
             display: block;
         }
         .certificate-container {
             text-align: center;
-            margin-top: 25px;
+            margin-top: 30px;
         }
         .certificate-container img {
-            max-width: 60%; /* Larger certificate image */
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            max-width: 70%; /* Even larger certificate image */
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
         }
         .project-details {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f8f8f8;
-            border-left: 5px solid #6a1b9a; /* Purple accent */
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #e0f7fa; /* Lighter blue background for project details */
+            border-left: 6px solid #2196f3; /* Blue accent */
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
         .project-details h2 {
             text-align: left;
-            font-size: 1.8em;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            color: #6a1b9a; /* Project title color */
+            font-size: 2em;
+            border-bottom: 2px solid #81d4fa; /* Lighter blue border */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #1a237e; /* Project title color */
         }
         .project-details p, .project-details li {
             text-align: left;
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 1.1em;
         }
         .project-details ol {
             list-style-type: decimal;
-            padding-left: 25px;
+            padding-left: 30px;
         }
         .project-buttons {
             display: flex;
             flex-wrap: wrap;
-            margin: 25px 0;
-            justify-content: center; /* Center project buttons */
+            margin: 30px 0;
+            justify-content: center;
         }
         .project-button {
-            background-color: #6a1b9a; /* Deep purple for project buttons */
+            background-color: #1976d2; /* Darker blue for project buttons */
+            background-image: linear-gradient(135deg, #1976d2, #1565c0); /* Button gradient */
             color: #fff;
             text-decoration: none;
-            border-radius: 8px;
-            margin: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            transition: all 0.3s ease;
             display: inline-block;
-            padding: 12px 25px;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 14px 28px;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1);
         }
         .project-button:hover {
-            background-color: #4a148c; /* Darker purple on hover */
-            transform: translateY(-2px);
+            background-image: linear-gradient(135deg, #1565c0, #0d47a1); /* Darker button gradient on hover */
+            transform: scale(1.05); /* Pop effect */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
         }
         footer {
             text-align: center;
-            padding: 25px;
-            margin-top: 20px; /* Adjusted margin to fit new layout */
-            background: linear-gradient(to right, #212121, #424242); /* Darker, sleek footer */
+            padding: 30px;
+            margin-top: 40px; /* Adjusted margin to fit new layout */
+            background: linear-gradient(to right, #263238, #455a64); /* Dark grey for footer */
             color: #e0e0e0;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto; /* Center footer and align with container */
+            border-radius: 0 0 20px 20px; /* Match container rounding */
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+            /* Removed width and margin properties as it's now inside .container */
+            transition: all 0.3s ease;
+        }
+        footer:hover {
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.3);
         }
         footer a {
             color: #81d4fa; /* Lighter blue for footer link */
@@ -269,80 +284,76 @@
             color: #bbdefb;
         }
 
-        /* New styles for the day selection bar */
+        /* Day selection bar styles */
         .day-selection-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px; /* Space between buttons */
-            padding: 15px;
-            background-color: #e3f2fd; /* Light blue background for the bar */
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            gap: 12px; /* More space between buttons */
+            padding: 20px;
+            background-color: #e3f2fd; /* Very light blue for the bar */
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         .day-selection-bar button {
             background-color: #2196f3; /* Blue button color */
+            background-image: linear-gradient(135deg, #2196f3, #1e88e5); /* Gradient */
             color: white;
             border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
+            padding: 12px 22px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            flex-grow: 1; /* Allow buttons to grow */
-            min-width: 80px; /* Minimum width for buttons */
-            max-width: 120px; /* Maximum width for buttons */
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            flex-grow: 1;
+            min-width: 90px;
+            max-width: 130px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .day-selection-bar button:hover {
-            background-color: #1976d2; /* Darker blue on hover */
+            background-image: linear-gradient(135deg, #1e88e5, #1565c0);
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .day-selection-bar button.active-day {
             background-color: #0d47a1; /* Even darker blue for active button */
+            background-image: none; /* Remove gradient for active state */
             font-weight: 600;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+            transform: translateY(0); /* Reset transform for active */
         }
-
+        
         @media (max-width: 768px) {
-            .main-wrapper {
-                flex-direction: column; /* Stack sidebar and content vertically on small screens */
-                margin: 10px auto;
+            .container, header, footer {
                 width: 95%;
-            }
-            .sidebar {
-                width: 100%; /* Sidebar takes full width */
-                border-radius: 15px 15px 0 0; /* Rounded top corners */
-                padding: 15px;
-            }
-            .sidebar nav {
-                flex-direction: row; /* Horizontal buttons in sidebar on small screens */
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .sidebar nav a {
-                width: calc(50% - 20px); /* Two buttons per row */
-                margin: 5px;
-                font-size: 14px;
-                padding: 10px 15px;
-            }
-            .content-area {
-                border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+                margin: 10px auto;
                 padding: 15px;
             }
             header {
                 flex-direction: column;
                 align-items: center;
-                padding: 10px 15px;
-                margin: 10px auto 0 auto;
-                width: 95%;
+                padding: 15px 20px;
             }
             header .home-button {
-                font-size: 15px;
-                padding: 10px 20px;
+                font-size: 16px;
+                padding: 12px 25px;
             }
             header img {
-                height: 50px;
+                height: 60px;
+            }
+            .main-nav-bar {
+                padding: 8px 0;
+                margin-bottom: 20px;
+            }
+            .main-nav-bar a {
+                padding: 10px 18px;
+                margin: 0 5px;
+                font-size: 14px;
+            }
+            .section {
+                padding: 20px;
             }
             .pdf-container iframe {
                 height: 450px;
@@ -351,121 +362,122 @@
                 max-width: 80%;
             }
             h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             .gallery .caption {
                 font-size: 16px;
             }
             .day-selection-bar button {
-                min-width: unset; /* Remove min-width on small screens */
-                flex-basis: calc(33% - 10px); /* 3 buttons per row */
+                min-width: unset;
+                flex-basis: calc(33% - 12px); /* 3 buttons per row */
                 font-size: 0.9em;
-                padding: 8px 12px;
+                padding: 10px 15px;
             }
         }
         @media (max-width: 480px) {
-            .sidebar nav a {
-                width: calc(100% - 20px); /* One button per row on very small screens */
+            .main-nav-bar a {
+                display: block; /* Stack nav buttons vertically */
+                width: calc(100% - 20px);
+                margin: 8px auto;
             }
             .certificate-container img {
                 max-width: 95%;
             }
             .day-selection-bar button {
-                flex-basis: calc(50% - 10px); /* 2 buttons per row on very small screens */
+                flex-basis: calc(50% - 12px); /* 2 buttons per row on very small screens */
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.6em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="https://www.gndec.ac.in/"><img src="gndecLogo.png" alt="gndec Logo"></a>
+        <a href="https://www.gndec.ac.in/"><img src="gndecLogo.png" alt="GNDEC Logo"></a>
         <a href="#" class="home-button" onclick="showSection('home')">Home</a>
-        <a href="https://www.thinknexttraining.com/"><img src="thinknextlogo.avif" alt="TN Logo"></a>
+        <a href="https://prasarbharati.gov.in/doordarshan/"><img src="ddlogo.png" alt="DD Logo"></a>
     </header>
 
-    <div class="main-wrapper">
-        <aside class="sidebar">
-            <h2>Report Sections</h2>
-            <nav>
-                <a style="background-color: #009688;" href="#" onclick="showSection('certificate')">Training Certificate</a>
-                <a style="background-color: #009688;" href="#" onclick="showSection('Final-Report')">Final Report</a>
-                <!-- Updated link to point to the new daily-reports section -->
-                <a href="#" onclick="showSection('daily-reports'); loadDay(1);">Daily Reports</a>
-                <a href="#" onclick="showSection('gallery')">Gallery</a>
-                <a style="background-color: #673ab7;" href="#" onclick="showSection('projects')">Projects</a>
-            </nav>
-        </aside>
+    <div class="container">
+        <nav class="main-nav-bar">
+            <a href="#" onclick="showSection('certificate')">Training Certificate</a>
+            <a href="#" onclick="showSection('Final-Report')">Final Report</a>
+            <a href="#" onclick="showSection('daily-reports'); loadDay(1);">Daily Reports</a>
+            <a href="#" onclick="showSection('gallery')">Gallery</a>
+            <a href="#" onclick="showSection('projects')">Projects</a>
+        </nav>
 
-        <div class="content-area">
-            <section id="home" class="section active">
-                <h1>Training TR-102 Report</h1>
-                <p>Amrinder Singh,URN 2302468<br>Guru Nanak Dev Engineering College Ludhiana</p>
-                <h2>4 Week training at <br>ThinkNext</h2>
-            </section>
-            <section id="certificate" class="section">
-                <h1>Certificate</h1>
-                <div class="certificate-container">
-                    <img src="TC.jpg" alt="Training Certificate">
+        <section id="home" class="section active">
+            <h1>My Summer Training Report</h1>
+            <p>By Your Name, Your URN <br> Your College Name</p>
+            <h2>4 Week training at <br> Your Training Organization</h2>
+        </section>
+        <section id="certificate" class="section">
+            <h1>Certificate</h1>
+            <div class="certificate-container">
+                <img src="TC.jpg" alt="Training Certificate">
+            </div>
+        </section>  
+        <section id="Final-Report" class="section">
+            <h1>Final Report</h1>
+            <div class="pdf-container">
+                <iframe src="https://srijansingh9.github.io/Training-102-Report/Final Report.pdf"></iframe>
+            </div>
+        </section>  
+        
+        <section id="daily-reports" class="section">
+            <h1>Daily Training Reports</h1>
+            <div class="day-selection-bar" id="daySelectionBar">
                 </div>
-            </section>  
-            <section id="Final-Report" class="section">
-                <h1>Final Report</h1>
-                <div class="pdf-container">
-                    <iframe src="https://srijansingh9.github.io/Training-102-Report/Final Report.pdf"></iframe>
-                </div>
-            </section>  
-            
-            <!-- New Daily Reports Section with Day Selection Bar -->
-            <section id="daily-reports" class="section">
-                <h1>Daily Training Reports</h1>
-                <div class="day-selection-bar" id="daySelectionBar">
-                    <!-- Buttons for each day will be generated here by JavaScript -->
-                </div>
-                <div class="pdf-container">
-                    <iframe id="dailyReportPdfViewer" src=""></iframe>
-                </div>
-            </section>
+            <div class="pdf-container">
+                <iframe id="dailyReportPdfViewer" src=""></iframe>
+            </div>
+        </section>
 
-            <section id="gallery" class="section">
-                <h2>Gallery</h2>
-                <div class="gallery">
-                    <img src="IngestRoom1.jpg" alt="Ingest Room">
-                    <div class="caption">Ingest Room</div>
-                    <img src="DDIndia Studio.jpg" alt="DD India Studio"  class="active">
-                    <div class="caption">DD India Studio</div>
-                    <img src="TP.jpg" alt="TP">
-                    <div class="caption">TelePrompter</div>
-                    <img src="IngestRoom2.jpg" alt="Ingest Room">
-                    <div class="caption">Ingest Room</div>
-                    <img src="Studio and jimmy jib.jpg" alt="Studio and jimmy jib">
-                    <div class="caption">Studio and Jimmy Jib (Camera Crane)</div>
-                    <img src="News Studio with news anchor's perspective.jpg" alt="News Studio with news anchor's perspective">
-                    <div class="caption">News Studio with news anchor's perspective</div>
-                    <img src="Wireless Lapel Mic.jpg" alt="Wireless Lapel Mic">
-                    <div class="caption">Wireless Lapel Mic</div>
-                    <img src="Lapel Mic.jpg" alt="Lapel Mic">
-                    <div class="caption">Lapel Mic (Used by News Anchor ...)</div>
-                    <img src="PCR.jpg" alt="PCR">
-                    <div class="caption">PCR</div>
-                    <img src="ENPS SR.jpg" alt="ENPS Server Room">
-                    <div class="caption">ENPS Server Room</div>
-                    <img src="AP ENPS.jpg" alt="AP ENPS Dashboard">
-                    <div class="caption">AP ENPS Dashboard</div>
-                    <img src="SpectraDashboard.jpg" alt="Spectra Black Pearl Dashboard">
-                    <div class="caption">Spectra Black Pearl Dashboard</div>
-                    <img src="StuderVista.jpg" alt="Studer Vista Black Pearl ">
-                    <div class="caption">VISTA Studer 1 Black Edition Digital Mixing Console</div>
-                    <img src="SpectraDashboard1.jpg" alt="Spectra Black Pearl Dashboard">
-                    <div class="caption">Spectra Black Pearl Dashboard</div>
-                    <img src="MeAtStudio.jpg" alt="Me At Studio"> 
-                    <div class="caption">Me At Studio</div>
-                    <img src="Earth Station Diagram.jpg" alt="Earth Station Diagram">   
-                    <div class="caption">Earth Station Diagram</div>
-                    <img scr="Dish At Earth Station for uplinking as well as downlinking.jpg" alt="Dish At Earth Station for uplinking as well as downlinking">
-                    <div class="caption">Dish At Earth Station for uplinking as well as downlinking</div>
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="IngestRoom1.jpg" alt="Ingest Room">
+                <div class="caption">Ingest Room</div>
+                <img src="DDIndia Studio.jpg" alt="DD India Studio"  class="active">
+                <div class="caption">DD India Studio</div>
+                <img src="TP.jpg" alt="TP">
+                <div class="caption">TelePrompter</div>
+                <img src="IngestRoom2.jpg" alt="Ingest Room">
+                <div class="caption">Ingest Room</div>
+                <img src="Studio and jimmy jib.jpg" alt="Studio and jimmy jib">
+                <div class="caption">Studio and Jimmy Jib (Camera Crane)</div>
+                <img src="News Studio with news anchor's perspective.jpg" alt="News Studio with news anchor's perspective">
+                <div class="caption">News Studio with news anchor's perspective</div>
+                <img src="Wireless Lapel Mic.jpg" alt="Wireless Lapel Mic">
+                <div class="caption">Wireless Lapel Mic</div>
+                <img src="Lapel Mic.jpg" alt="Lapel Mic">
+                <div class="caption">Lapel Mic (Used by News Anchor ...)</div>
+                <img src="PCR.jpg" alt="PCR">
+                <div class="caption">PCR</div>
+                <img src="ENPS SR.jpg" alt="ENPS Server Room">
+                <div class="caption">ENPS Server Room</div>
+                <img src="AP ENPS.jpg" alt="AP ENPS Dashboard">
+                <div class="caption">AP ENPS Dashboard</div>
+                <img src="SpectraDashboard.jpg" alt="Spectra Black Pearl Dashboard">
+                <div class="caption">Spectra Black Pearl Dashboard</div>
+                <img src="StuderVista.jpg" alt="Studer Vista Black Pearl ">
+                <div class="caption">VISTA Studer 1 Black Edition Digital Mixing Console</div>
+                <img src="SpectraDashboard1.jpg" alt="Spectra Black Pearl Dashboard">
+                <div class="caption">Spectra Black Pearl Dashboard</div>
+                <img src="MeAtStudio.jpg" alt="Me At Studio"> 
+                <div class="caption">Me At Studio</div>
+                <img src="Earth Station Diagram.jpg" alt="Earth Station Diagram">   
+                <div class="caption">Earth Station Diagram</div>
+                <img scr="Dish At Earth Station for uplinking as well as downlinking.jpg" alt="Dish At Earth Station for uplinking as well as downlinking">
+                <div class="caption">Dish At Earth Station for uplinking as well as downlinking</div>
             </section>
             <section id="projects" class="section">
                 <h1>Projects</h1>
@@ -502,11 +514,12 @@
                 </div>
             </section>
         </div>
+
+        <footer>
+           <a href="YOUR_LINKEDIN_PROFILE_URL"> &copy; Your Name</a>
+        </footer>
     </div>
 
-    <footer>
-       <a href="YOUR_LINKEDIN_PROFILE_URL"> &copy; Amrinder Singh</a>
-    </footer>
     <script>
         // Function to show a specific section
         function showSection(id) {
@@ -556,7 +569,7 @@
             const totalDays = 16; // Assuming 16 days for the report
             for (let i = 1; i <= totalDays; i++) {
                 const button = document.createElement('button');
-                button.textContent = `${i}`;
+                button.textContent = `Day ${i}`;
                 button.onclick = () => loadDay(i);
                 daySelectionBar.appendChild(button);
             }
@@ -570,8 +583,8 @@
         function loadDay(dayNumber) {
             const pdfViewer = document.getElementById('dailyReportPdfViewer');
             // Update this base URL if your PDFs are hosted elsewhere
-            const baseUrl = 'https://themaverikk65.github.io/Training_102_report/#'; 
-            pdfViewer.src = `https://themaverikk65.github.io/Training_102_report/${dayNumber}.pdf`;
+            const baseUrl = 'https://srijansingh9.github.io/Training-102-Report/'; 
+            pdfViewer.src = `${baseUrl}Day${dayNumber}.pdf`;
 
             // Update active button styling
             const buttons = document.querySelectorAll('.day-selection-bar button');
